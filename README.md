@@ -19,18 +19,21 @@
 
 1.a) **Where to get the datasets?**
 
-**Shi's Re-processing of Gehler's Raw Dataset**: [here](http://www.cs.sfu.ca/~colour/data/shi_gehler/)
-**NUS-8 Camera Dataset**: [here](http://www.comp.nus.edu.sg/~whitebal/illuminant/illuminant.html)
+*Shi's Re-processing of Gehler's Raw Dataset*: [here](http://www.cs.sfu.ca/~colour/data/shi_gehler/)
 
-1.b) **The input images looks preuly black. What's happening?**
+*NUS-8 Camera Dataset*: [here](http://www.comp.nus.edu.sg/~whitebal/illuminant/illuminant.html)
+
+1.b) **The input images look purely black. What's happening?**
 The input photos from the ColorChecker dataset are 16-bit `png` files and some image viewer may not support them, as `png`s are typically 8-bit. 
 
-Also, since these photos are linear (RAW sensor activations) and modern displays has a `2.2` gamma value (instead of linear gamma), they will appear even darker when displayed. 
+Also, since these photos are linear (RAW sensor activations) and modern displays have a `2.2` gamma value (instead of linear gamma), they will appear even darker when displayed. 
 
-1.c) **I corrected the gamma. Now most images appear grean. Is there anything wrong?**
-It's common that RAW images appear green. A possibility is that the colro filters of digital cameras may have a stronger activation on the green channel.
+A exposure correction is also necessary.
 
-2) **How to preprocess the datasets?**
+1.c) **I corrected the gamma. Now most images appear green. Is there anything wrong?**
+It's common that RAW images appear green. A possibility is that the color filters of digital cameras may have a stronger activation on the green channel.
+
+2) **How to preprocess the data?**
 
 # Bibtex
 ```
