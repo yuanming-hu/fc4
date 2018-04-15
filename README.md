@@ -7,7 +7,7 @@
 
 **Change log:**
  - April 15, 2018: Started preparing for code release. TODO:
-   - Upgrade `python` version from `2.7` to `3.5+`
+   - Upgrade `python` version from `2.7` to `3.5+`. **Please use python 2.7 for now.**
    - Upgrade `tensorflow` version from `1.1` to `1.7`
    - Remove internal project code
    - Retrain on datasets to get a tensorflow `1.7` compatible model
