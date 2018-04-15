@@ -12,7 +12,7 @@
    - Remove internal project code
    - Retrain on datasets to get a tensorflow `1.7` compatible model
 
-<img src="web/images/teaser.jpg">
+<img src="web/images/teaser.png">
 
 # FAQ
 1) **Where to get the datasets?**
