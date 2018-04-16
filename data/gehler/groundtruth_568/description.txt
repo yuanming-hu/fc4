@@ -1,0 +1,12 @@
+The file colourchecker_gamma1_bit12.mat contains the 24 RGB tuples of colourcheckers in 568 images;
+The file real_illum_568.mat contains the groundtruth illuminations of 568 images;
+
+
+The groundtruth is computed as:
+========================================================================
+load(['colourchecker_gamma1_bit12']);
+real_rgb = cat(1,real_rgb(1:86,:,:),real_rgb(87:end,:,:)-129).^(1/gamma);
+real_rgb = squeeze(max(real_rgb(:,19:24,:),[],2));
+======================================================================
+
+
