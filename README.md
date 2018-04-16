@@ -34,11 +34,12 @@ A exposure correction is also necessary.
 It's common that RAW images appear green. A possibility is that the color filters of digital cameras may have a stronger activation on the green channel.
 
 2) **How to preprocess the data?**
+
 [*Shi's Re-processing of Gehler's Raw Dataset*:](http://www.cs.sfu.ca/~colour/data/shi_gehler/)
  - Download the 4 zip files from the website
  - Extract the images into `fc4/data/gehler/images/`
  - `python dataset.py`, and wait for it to finish
- - `python show_patches.py`
+ - `python show_patches.py` to view **data-augmented** patches. Press any key to see the next patch. You can use this data provider to train your own network.
 
 # Bibtex
 ```
