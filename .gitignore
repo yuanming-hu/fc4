@@ -2,4 +2,4 @@
 *.pyc
 .idea
 cmake-build-debug
-
+models/fc4/*
