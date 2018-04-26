@@ -3,3 +3,4 @@
 .idea
 cmake-build-debug
 models/fc4/*
+.DS_Store
