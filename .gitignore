@@ -1,2 +1,5 @@
 /data/gehler/images
 *.pyc
+.idea
+cmake-build-debug
+
