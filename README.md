@@ -44,7 +44,7 @@ It's common that RAW images appear green. A possibility is that the color filter
 
 3) **How train the model?**
  - First, make sure you have preprocessed the data.
- - `python fc4.py train example`, and wait for it to finish. The model will be located at `models/fc4/example/`
+ - `python fc4.py train example`, and wait for it to finish. The model will be located at `models/fc4/example/`. `example` here is the model name and you can change it to any other suitable identifier.
  - Note that there are three folds and you need to modify Ln 99 of `config.py` to `FOLD = 1` or `FOLD = 2` for other two folds.
 
 4) **Where to see the visualized confidence maps?**
