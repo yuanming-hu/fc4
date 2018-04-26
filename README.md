@@ -54,3 +54,6 @@ It's common that RAW images appear green. A possibility is that the color filter
 # Related Research Projects and Implementations 
  - [Exposure](https://github.com/yuanming-hu/exposure) General-propose photo postprocessing
  - ...
+ 
+# Acknoledgements 
+ - The SqueezeNet model is taken from [here](https://github.com/DeepScale/SqueezeNet). Thank Yu Gu for his great efforts in converting the Caffe models into a `TensorFlow`-readable version! 
