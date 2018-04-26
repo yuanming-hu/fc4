@@ -7,6 +7,7 @@
 
 **Change log:**
 - April 25, 2018: **Released network definition scripts and training instructions**. TODO:
+   - update `config.py` for reproducing benchmark numbers.
    - Upgrade `python` version from `2.7` to `3.5+`. **Please use python 2.7 for now.**
    - Remove internal project code and release all the other scripts.
    - Retrain on datasets to get a tensorflow `1.7` compatible pretrained model.
