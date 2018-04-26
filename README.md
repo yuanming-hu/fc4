@@ -12,7 +12,11 @@
    - Retrain on datasets to get a tensorflow `1.7` compatible pretrained model.
 - April 15, 2018: Started preparing for code release. 
 
-<img src="web/images/teaser.png">
+## Problem, Challenge, and Solution 
+<img src="web/images/teaser.jpg" width="500">
+
+## Visual Results ([More](https://github.com/yuanming-hu/public_files/raw/master/fc4-supp.pdf))
+<img src="web/images/fig6.jpg">
 
 # FAQ
 ## **Color Constancy and Datasets**
