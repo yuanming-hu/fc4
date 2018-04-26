@@ -6,7 +6,6 @@ import cPickle as pkl
 POOLING_LAYERS = [1, 3, 5]
 MODEL_PATH = 'data/squeeze_net/model.pkl'
 
-
 class SqueezeNet(object):
 
   def __init__(self, imgs):
@@ -233,5 +232,4 @@ class SqueezeNet(object):
 def create_convnet(imgs):
   sn = SqueezeNet(imgs)
   return {'features_out': sn.get_features_out()}
-
 
