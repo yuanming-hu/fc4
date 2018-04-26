@@ -46,7 +46,7 @@ a) **Installation**
  sudo python2 -m pip install opencv-python tensorflow-gpu scipy
  ```
 
-b) **How to preprocess the data?**
+b) **Data Pre-processing**
 
 [*Shi's Re-processing of Gehler's Raw Dataset*:](http://www.cs.sfu.ca/~colour/data/shi_gehler/)
  - Download the 4 zip files from the website
@@ -54,12 +54,12 @@ b) **How to preprocess the data?**
  - `python dataset.py`, and wait for it to finish
  - `python show_patches.py` to view **data-augmented** patches. Press any key to see the next patch. You can use this data provider to train your own network.
 
-c) **How train the models?**
+c) **Model Training**
  - First, make sure you have preprocessed the data.
  - `python fc4.py train example`, and wait for it to finish. The model will be located at `models/fc4/example/`. `example` here is the model name and you can change it to any other suitable identifier.
  - Note that there are three folds and you need to modify Ln 99 of `config.py` to `FOLD = 1` or `FOLD = 2` for other two folds.
 
-d) **Where to see the visualized confidence maps?**
+d) **Visualize Confidence Maps**
  You can look at how the confidence map evolves at the folders `models/fc4/example/testXXXXsummaries_0.500000`.
 
 e) **Pretrained models?**
