@@ -6,11 +6,11 @@
 
 
 **Change log:**
- - April 15, 2018: Started preparing for code release. TODO:
+- April 25, 2018: **Released network definition scripts and training instructions**. TODO:
    - Upgrade `python` version from `2.7` to `3.5+`. **Please use python 2.7 for now.**
-   - Upgrade `tensorflow` version from `1.1` to `1.7`
-   - Remove internal project code
-   - Retrain on datasets to get a tensorflow `1.7` compatible model
+   - Remove internal project code and release all the other scripts.
+   - Retrain on datasets to get a tensorflow `1.7` compatible pretrained model.
+- April 15, 2018: Started preparing for code release. 
 
 <img src="web/images/teaser.png">
 
@@ -22,6 +22,8 @@
 *Shi's Re-processing of Gehler's Raw Dataset*: [here](http://www.cs.sfu.ca/~colour/data/shi_gehler/)
 
 *NUS-8 Camera Dataset*: [here](http://www.comp.nus.edu.sg/~whitebal/illuminant/illuminant.html)
+
+**(The following two sub-questions are FAQs before I release the code - now the script will take care of these details and you don't need to worry unless out of curisity.)**
 
 1.b) **The input images look purely black. What's happening?**
 
@@ -40,6 +42,17 @@ It's common that RAW images appear green. A possibility is that the color filter
  - `python dataset.py`, and wait for it to finish
  - `python show_patches.py` to view **data-augmented** patches. Press any key to see the next patch. You can use this data provider to train your own network.
 
+3) **How train the model?**
+ - First, make sure you have preprocessed the data.
+ - `python fc4.py train example`, and wait for it to finish. The model will be located at `models/fc4/example/`
+ - Note that there are three folds and you need to modify Ln 99 of `config.py` to `FOLD = 1` or `FOLD = 2` for other two folds.
+
+4) **Where to see the visualized confidence maps?**
+ You can look at how the confidence map evolves at the folders `models/fc4/example/testXXXXsummaries_0.500000`.
+
+5) **Pretrained model?**
+ - Coming soon.
+ 
 # Bibtex
 ```
 @inproceedings{hu2017fc,
