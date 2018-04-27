@@ -37,6 +37,15 @@ c) **I corrected the gamma. Now most images appear green. Is there anything wron
 
 It's common that RAW images appear green. One possible cause is that the color filters of digital cameras may have a stronger activation on the green channel.
 
+d) **What should be done to improve the datasets?**
+
+ - The amount of data is relatively small for deep learning.
+ - The (historical) three-fold cross-validation splits (for both ColorChecker and NUS-8 camera) do not actually have  validation sets. This means people have to tweak hyper-parameters based on the test set. This may not be a serious issue for traditional statistics-based approaches since not many parameters need to be tuned, but the risk of overfitting is becoming higher and higher when the model goes deeper and deeper!
+ - When only 568 images, the test noise is huge. When three-fold cross-validation is used, if a single test image raises its error from 1 degree to 18 degrees (which is common), it will result in a 0.1 degree average angular error increase. Even if we use cross-validation, the gap between validation set and test set can still be very large. 
+ - In some images, there are actually more than one light sources in the scene. The illumination difference may be as large as 10 degrees. Since we already achieve < 2 degrees of estimation error, further reducing this number may not provide a significant evidence for algorithm comparison.
+
+  [**The Cube dataset**](http://ipg.fer.hr/ipg/resources/color_constancy#) can be useful for future research!
+
 ## FC<sup>4</sup> Training and Testing
 
 a) **Installation**
@@ -83,6 +92,13 @@ f) **How to make inference on images based on trained model?**
  - [Exposure](https://github.com/yuanming-hu/exposure) (General-propose photo postprocessing with GANs and reinforcement learning)
  - [FFCC](https://github.com/google/ffcc) (Fast Fourier Color Constancy: an auto white balance solution with machine learning in Fourier space)
  - ...
- 
+
+# Color Constancy Resources
+ - [**Color Constancy** by the Image Processing Group @ FER](http://ipg.fer.hr/ipg/resources/color_constancy#)
+   **The Cube dataset** may be useful for future research!
+ - [**Research Website on Illuminant Estimation** by Arjan Gijsenij and Theo Gevers](http://colorconstancy.com/)
+ - (Let me know if you think something else should be here!)
+
+
 # Acknoledgements 
  - The SqueezeNet model is taken from [here](https://github.com/DeepScale/SqueezeNet). Thank Yu Gu for his great efforts in converting the `Caffe` models into a `TensorFlow`-readable version! 
