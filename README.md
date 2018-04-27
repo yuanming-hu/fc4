@@ -114,5 +114,5 @@ f) **How to make inference on images based on a trained model?**
  - (Let me know if you think something else should be here!)
 
 
-# Acknoledgements 
+# Acknowledgements 
  - The SqueezeNet model is taken from [here](https://github.com/DeepScale/SqueezeNet). Thank Yu Gu for his great efforts in converting the `Caffe` models into a `TensorFlow`-readable version! 
