@@ -34,13 +34,17 @@ def test(name, ckpt, image_pack_name=None, output_filename=None):
     data = load_data(image_pack_name.split(','))
   with get_session() as sess:
     fcn = FCN(sess=sess, name=name)
-    fcn.load(ckpt)
+    if ckpt != "-1":
+      fcn.load(ckpt)
+    else:
+      fcn.load_absolute(name)
     errors, _, _, _, ret, conf = fcn.test(
         scales=[0.5],
         summary=True,
         summary_key=123,
         data=data,
-        eval_speed=False)
+        eval_speed=False,
+        visualize=True)
     if output_filename is not None:
       with open('outputs/%s.pkl' % output_filename, 'wb') as f:
         pickle.dump(ret, f)
