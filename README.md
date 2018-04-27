@@ -77,11 +77,16 @@ e) **Pretrained models?**
  - This model is trained on **fold 1 and fold 2**. It should be tested on **fold 0**. More models coming soon.
  
 f) **How to make inference on images based on trained model?**
+
+ - Please download the pretrained model first. You can modify the model path to other checkpoints if you want.
  - Test on the ColorChecker dataset (make sure you have preprocessed it):
  ```
-  python2 fc4.py test tmp/colorchecker_fold1and2.ckpt -1 g0
+  python2 fc4.py test pretrained/colorchecker_fold1and2.ckpt -1 g0
  ```
- - Test on other images: TODO
+ - Test on other images: (e.g. `sample_inputs/a.png`)
+ ```
+ python2 fc4.py test pretrained/colorchecker_fold1and2.ckpt -1 sample_inputs/a.png
+ ```
  
  You will see the reulst in seconds. Legend:
  <img src="web/images/legend.jpg" width="900">
