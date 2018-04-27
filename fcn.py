@@ -832,6 +832,9 @@ class FCN:
 
   def load(self, key, name=None):
     fn = self.get_filename(key, name=name)
+    self.load_absolute(fn)
+    
+  def load_absolute(self, fn):
     self.saver.restore(self.sess, fn)
     print("Model %s restored." % fn)
 

@@ -34,7 +34,10 @@ def test(name, ckpt, image_pack_name=None, output_filename=None):
     data = load_data(image_pack_name.split(','))
   with get_session() as sess:
     fcn = FCN(sess=sess, name=name)
-    fcn.load(ckpt)
+    if ckpt != "-1":
+      fcn.load(ckpt)
+    else:
+      fcn.load_absolute(name)
     errors, _, _, _, ret, conf = fcn.test(
         scales=[0.5],
         summary=True,
