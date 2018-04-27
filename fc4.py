@@ -40,7 +40,8 @@ def test(name, ckpt, image_pack_name=None, output_filename=None):
         summary=True,
         summary_key=123,
         data=data,
-        eval_speed=False)
+        eval_speed=False,
+        visualize=True)
     if output_filename is not None:
       with open('outputs/%s.pkl' % output_filename, 'wb') as f:
         pickle.dump(ret, f)

@@ -547,7 +547,7 @@ class FCN:
            weights=[],
            summary_key=0,
            data=None,
-           eval_speed=False):
+           eval_speed=False, visualize=False):
     if not TEST_FOLDS:
       return [0]
     if data is None:
@@ -660,6 +660,12 @@ class FCN:
           pass
         summary_fn = '%s/%5.3f-%s.png' % (folder, error, fn)
         cv2.imwrite(summary_fn, merged[:, :, ::-1] * 255)
+        
+    if visualize:
+      for fn, error, merged in summaries:
+        cv2.imshow('Testing', merged[:, :, ::-1])
+        cv2.waitKey(0)
+      
     return errors, ppt, outputs, ground_truth, ret, avg_confidence
 
   # Test external images, such as sixteen or some jpegs
