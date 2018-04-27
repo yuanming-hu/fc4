@@ -76,9 +76,9 @@ e) **Pretrained models?**
   To get a pretrained model, please download [**Pretrained model on the ColorChecker Dataset**](https://github.com/yuanming-hu/fc4/releases/download/pretrained/pretrained_colorchecker_fold1and2.zip), and put the three files in folder `pretrained`
  - This model is trained on **fold 1 and fold 2**. It should be tested on **fold 0**. More models coming soon.
  
-f) **How to make inference on images based on trained model?**
+f) **How to make inference on images based on a trained model?**
 
- - Please download the pretrained model first. You can modify the model path to other checkpoints if you want.
+ - Please download the pretrained model first (as an example here). You can modify the model path to other checkpoints if you want.
  - Test on the ColorChecker dataset (make sure you have preprocessed it):
  ```
   python2 fc4.py test pretrained/colorchecker_fold1and2.ckpt -1 g0
@@ -88,7 +88,7 @@ f) **How to make inference on images based on trained model?**
  python2 fc4.py test pretrained/colorchecker_fold1and2.ckpt -1 sample_inputs/a.png
  ```
  
- You will see the reulst in seconds. Legend:
+ You will see the results in seconds. Legend:
  <img src="web/images/legend.jpg" width="900">
 
 # Bibtex
