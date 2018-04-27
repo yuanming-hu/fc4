@@ -72,11 +72,20 @@ d) **Visualize Confidence Maps**
  You can look at how the confidence map evolves at the folders `models/fc4/example/testXXXXsummaries_0.500000`.
 
 e) **Pretrained models?**
- - Coming soon.
+
+  To get a pretrained model, please download [**Pretrained model on the ColorChecker Dataset**](https://github.com/yuanming-hu/fc4/releases/download/pretrained/pretrained_colorchecker_fold1and2.zip), and put the three files in folder `pretrained`
+ - This model is trained on **fold 1 and fold 2**. It should be tested on **fold 0**. More models coming soon.
  
 f) **How to make inference on images based on trained model?**
- - Instructions coming soon.
+ - Test on the ColorChecker dataset (make sure you have preprocessed it):
+ ```
+  python2 fc4.py test tmp/colorchecker_fold1and2.ckpt -1 g0
+ ```
+ - Test on other images: TODO
  
+ You will see the reulst in seconds. Legend:
+ <img src="web/images/legend.jpg" width="900">
+
 # Bibtex
 ```
 @inproceedings{hu2017fc,
