@@ -9,7 +9,7 @@ FCN_INPUT_SIZE = 512
 # Use data augmentation?
 AUGMENTATION = True
 # Rotation angle
-AUGMENTATION_ANGLE = 30
+AUGMENTATION_ANGLE = 60
 # Patch scale
 AUGMENTATION_SCALE = [0.1, 1.0]
 # Random left-right flip?
@@ -17,7 +17,7 @@ AUGMENTATION_FLIP_LEFTRIGHT = True
 # Random top-down flip?
 AUGMENTATION_FLIP_TOPDOWN = False
 # Color rescaling?
-AUGMENTATION_COLOR = 0.0
+AUGMENTATION_COLOR = 0.8
 # Cross-channel terms
 AUGMENTATION_COLOR_OFFDIAG = 0.0
 # Augment Gamma?
@@ -132,7 +132,7 @@ def initialize_dataset_config(dataset_name=None, subset=None, fold=None):
 
 # Saver
 CKPTS_TO_KEEP = 0
-EPOCHS = 1300
+EPOCHS = 6000
 
 ##########################
 # Test

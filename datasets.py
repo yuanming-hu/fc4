@@ -28,7 +28,6 @@ def get_image_pack_fn(key):
 
 
 class ImageRecord:
-
   def __init__(self, dataset, fn, illum, mcc_coord, img, extras=None):
     self.dataset = dataset
     self.fn = fn

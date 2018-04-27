@@ -1,3 +1,4 @@
+from datasets import get_image_pack_fn, ImageRecord
 import cPickle as pickle
 import numpy as np
 import random
@@ -7,10 +8,9 @@ import math
 
 from config import *
 from utils import rotate_and_crop
-from datasets import get_image_pack_fn, ImageRecord
 from condition import AsyncTaskManager
 import datasets
-
+from datasets import get_image_pack_fn
 
 def load_data(folds):
   records = []
