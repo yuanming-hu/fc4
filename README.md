@@ -26,7 +26,7 @@ a) **Where to get the datasets?**
  - *Shi's Re-processing of Gehler's Raw Dataset*: [here](http://www.cs.sfu.ca/~colour/data/shi_gehler/)
  - *NUS-8 Camera Dataset*: [here](http://www.comp.nus.edu.sg/~whitebal/illuminant/illuminant.html)
 
-**(The following two sub-questions are FAQs before I release the code - now the script will take care of these details and you don't need to worry unless out of curisity.)**
+**(The following two sub-questions are FAQs before I release the code - now the script will take care of these details and you don't need to worry unless out of curiosity.)**
 
 b) **The input images look purely black. What's happening?**
 
@@ -114,5 +114,5 @@ f) **How to make inference on images based on a trained model?**
  - (Let me know if you think something else should be here!)
 
 
-# Acknowledgements 
+# Acknowledgments 
  - The SqueezeNet model is taken from [here](https://github.com/DeepScale/SqueezeNet). Thank Yu Gu for his great efforts in converting the `Caffe` models into a `TensorFlow`-readable version! 
