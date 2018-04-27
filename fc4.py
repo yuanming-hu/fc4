@@ -28,9 +28,10 @@ def get_average(image_packs):
 
 
 def test(name, ckpt, image_pack_name=None, output_filename=None):
+  external_image = image_pack_name.index('.') != -1
   if image_pack_name is None:
     data = None
-  else:
+  elif not external_image:
     data = load_data(image_pack_name.split(','))
   with get_session() as sess:
     fcn = FCN(sess=sess, name=name)
@@ -38,22 +39,29 @@ def test(name, ckpt, image_pack_name=None, output_filename=None):
       fcn.load(ckpt)
     else:
       fcn.load_absolute(name)
-    errors, _, _, _, ret, conf = fcn.test(
-        scales=[0.5],
-        summary=True,
-        summary_key=123,
-        data=data,
-        eval_speed=False,
-        visualize=True)
-    if output_filename is not None:
-      with open('outputs/%s.pkl' % output_filename, 'wb') as f:
-        pickle.dump(ret, f)
-      with open('outputs/%s_err.pkl' % output_filename, 'wb') as f:
-        pickle.dump(errors, f)
-      with open('outputs/%s_conf.pkl' % output_filename, 'wb') as f:
-        pickle.dump(conf, f)
-      print ret
-      print 'results dumped'
+    if not external_image:
+      errors, _, _, _, ret, conf = fcn.test(
+          scales=[0.5],
+          summary=True,
+          summary_key=123,
+          data=data,
+          eval_speed=False,
+          visualize=True)
+      if output_filename is not None:
+        with open('outputs/%s.pkl' % output_filename, 'wb') as f:
+          pickle.dump(ret, f)
+        with open('outputs/%s_err.pkl' % output_filename, 'wb') as f:
+          pickle.dump(errors, f)
+        with open('outputs/%s_conf.pkl' % output_filename, 'wb') as f:
+          pickle.dump(conf, f)
+        print ret
+        print 'results dumped'
+    else:
+      img = cv2.imread(image_pack_name)
+      # reverse gamma correction for sRGB
+      img = (img / 255.0) ** 2.2 * 16384
+      images = [img]
+      fcn.test_external(images=images, fns=[image_pack_name])
 
 
 def test_input_gamma(name,
