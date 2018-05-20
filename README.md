@@ -103,7 +103,7 @@ f) **How to make inference on images based on a trained model?**
 ```
 
 # Related Research Projects and Implementations 
- - [Exposure](https://github.com/yuanming-hu/exposure) (General-propose photo postprocessing with GANs and reinforcement learning)
+ - [Exposure](https://github.com/yuanming-hu/exposure) (General-purpose photo postprocessing with GANs and reinforcement learning)
  - [FFCC](https://github.com/google/ffcc) (Fast Fourier Color Constancy: an auto white balance solution with machine learning in Fourier space)
  - ...
 
