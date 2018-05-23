@@ -101,6 +101,7 @@ If you want to disable confidence-weighted pooling, the correct way is setting `
 
 h) **How to merge test results on three folds?**
 
+`python2 combine.py [fold0_model_name] [fold1_model_name] [fold2_model_name]`
 
 # Bibtex
 ```
