@@ -6,11 +6,11 @@
 
 
 **Change log:**
+- May 22, 2018:
+   - Added some FAQs.
 - April 25, 2018: **Released network definition scripts and training instructions**. TODO:
-   - update `config.py` for reproducing benchmark numbers.
+   - Update `config.py` for more datasets and benchmarks.
    - Upgrade `python` version from `2.7` to `3.5+`. **Please use python 2.7 for now.**
-   - Remove internal project code and release all the other scripts.
-   - Retrain on datasets to get a tensorflow `1.7` compatible pretrained model.
 - April 15, 2018: Started preparing for code release. 
 
 ## The Problem, the Challenge, and Our Solution 
@@ -90,6 +90,17 @@ f) **How to make inference on images based on a trained model?**
  
  You will see the results in seconds. Legend:
  <img src="web/images/legend.jpg" width="900">
+
+g) **What does the `SEPERATE_CONFIDENCE` option mean? When its value is `False`, does it mean confidence-weighted pooling is disabled?**
+
+Firstly, let's clarify a common misunderstanding of the color constancy problem: the output of a color constancy consists of *three* components. Actually, there are only *two* components (degrees-of-freedom). In some paper, the two components are denoted as `u`/`v` or `temperature`/`tint`. When estimating `R/G/B`, there should be a constraint on the values, either `L1` (`R+G+B=1`) or L2 (`R^2+G^2+B^2=1`).
+
+In our paper, we estimate `R/G/B`. Therefore, for each patch, we should either normalize the `R/G/B` output and estimate another confidence value (which is mathematically more explicit), or directly use the `unnormalized` estimation as normalized `R/G/B` times confidence, as mentioned in paper section 4.1. Either way is fine and confidence-weighting is used because one extra degree of freedom (i.e. confidence) is allowed. If you use `SEPERATE_CONFIDENCE=True`, the former is used; otherwise the latter is used.
+
+If you want to disable confidence-weighted pooling, the correct way is setting `WEIGHTED_POOLING=False`.
+
+h) **How to merge test results on three folds?**
+
 
 # Bibtex
 ```
