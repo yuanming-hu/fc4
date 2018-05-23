@@ -17,5 +17,5 @@ def combine(models):
   return combined
 
 if __name__ == '__main__':
-  models = sys.argv[1:-1]
+  models = sys.argv[1:]
   print_angular_errors(combine(models))
