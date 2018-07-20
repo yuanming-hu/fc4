@@ -74,6 +74,7 @@ d) **Visualize Confidence Maps**
  You can look at how the confidence map evolves at the folders `models/fc4/example/testXXXXsummaries_0.500000`.
 
 e) **Pretrained models?**
+
   To get the pretrained models on the ColorChecker dataset, please download [**Pretrained models on the ColorChecker Dataset**](https://github.com/yuanming-hu/fc4/releases/download/pretrained/pretrained_colorchecker.zip), and put the nine files in folder `pretrained`.
  
 f) **How to reproduce the results reported in the paper?**
