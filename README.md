@@ -72,17 +72,34 @@ d) **Visualize Confidence Maps**
  You can look at how the confidence map evolves at the folders `models/fc4/example/testXXXXsummaries_0.500000`.
 
 e) **Pretrained models?**
-
-  To get a pretrained model, please download [**Pretrained model on the ColorChecker Dataset**](https://github.com/yuanming-hu/fc4/releases/download/pretrained/pretrained_colorchecker_fold1and2.zip), and put the three files in folder `pretrained`
- - This model is trained on **fold 1 and fold 2**. It should be tested on **fold 0**. More models coming soon.
+  To get the pretrained models on the ColorChecker dataset, please download [**Pretrained model on the ColorChecker Dataset**](https://github.com/yuanming-hu/fc4/releases/download/pretrained/pretrained_colorchecker_fold1and2.zip), and put the nine files in folder `pretrained`.
  
-f) **How to make inference on images based on a trained model?**
-
- - Please download the pretrained model first (as an example here). You can modify the model path to other checkpoints if you want.
- - Test on the ColorChecker dataset (make sure you have preprocessed it):
+f) **How to reproduce the results reported in the paper?**
+ - Taking the ColorChecker dataset as an example.
+ - Please train the three-fold models (make sure you modify `FOLD` to be `0`, `1`, `2` in `config.py`) or download the pretrained models.
+ - (Suppose you are using the pretrained model. Modify the path if not.) Test on the ColorChecker dataset (make sure you have preprocessed it):
  ```
-  python2 fc4.py test pretrained/colorchecker_fold1and2.ckpt -1 g0
+ python2 fc4.py test pretrained/colorchecker_fold1and2.ckpt -1 g0 fold0
+ python2 fc4.py test pretrained/colorchecker_fold2and0.ckpt -1 g1 fold1
+ python2 fc4.py test pretrained/colorchecker_fold0and1.ckpt -1 g2 fold2
  ```
+ - Combine the three folds:
+ ```
+    python2 combine.py outputs/fold0_err.pkl outputs/fold1_err.pkl outputs/fold2_err.pkl
+ ```
+ - You will see the results
+ ```
+ 25: 0.384, med: 1.160 tri: 1.237 avg: 1.634 75: 3.760 95: 4.850
+ ```
+ - In comparison to what we reported in the paper:
+ ```
+ |                                   | Mean | Median | Tri. Mean | Best 25% | Worst 25% | 95% Quant. |
+ |-----------------------------------|------|--------|-----------|----------|-----------|------------|
+ | SqueezeNet-FC4 (CVPR 2017 paper)  | 1.65 | 1.18   | 1.27      | 0.38     | 3.78      | 4.73       |
+ | SqueezeNet-FC4 (Open source code) | 1.63 | 1.16   | 1.24      | 0.38     | 3.76      | 4.85       |
+ ```
+ You can see we get slightly better result except for `95% Quant.`. The difference should be due to randomness (or different TensorFlow version, I am not sure myself...).
+g) **How to make inference on images based on a trained model?**
  - Test on other images: (e.g. `sample_inputs/a.png`)
  ```
  python2 fc4.py test pretrained/colorchecker_fold1and2.ckpt -1 sample_inputs/a.png
@@ -91,7 +108,7 @@ f) **How to make inference on images based on a trained model?**
  You will see the results in seconds. Legend **(TODO: this legend doesn't match the latest code!)**:
  <img src="web/images/legend.jpg" width="900">
 
-g) **What does the `SEPERATE_CONFIDENCE` option mean? When its value is `False`, does it mean confidence-weighted pooling is disabled?**
+h) **What does the `SEPERATE_CONFIDENCE` option mean? When its value is `False`, does it mean confidence-weighted pooling is disabled?**
 
 Firstly, let's clarify a common misunderstanding of the color constancy problem: the output of a color constancy consists of *three* components. Actually, there are only *two* components (degrees-of-freedom). In some paper, the two components are denoted as `u`/`v` or `temperature`/`tint`. When estimating `R/G/B`, there should be a constraint on the values, either `L1` (`R+G+B=1`) or L2 (`R^2+G^2+B^2=1`).
 
@@ -99,7 +116,7 @@ In our paper, we estimate `R/G/B`. Therefore, for each patch, we should either n
 
 If you want to disable confidence-weighted pooling, the correct way is setting `WEIGHTED_POOLING=False`.
 
-h) **How to merge test results on three folds?**
+i) **How to merge test results on three folds?**
 
 `python2 combine.py [fold0_model_name] [fold1_model_name] [fold2_model_name]`
 

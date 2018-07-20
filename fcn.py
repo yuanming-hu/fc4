@@ -371,13 +371,13 @@ class FCN:
             i)
         if MULTIRES_TEST:
           self.test(summary=summary, scales=[0.25, 0.5, 1.0], summary_key=i)
-        error_fn = self.get_ckpt_folder() + 'error%04d.pkl' % i
-        with open(error_fn, 'wb') as f:
-          pickle.dump(errors, f, protocol=-1)
         # Does validation loss achieve a new minimum?
         # It is unfortunate that the datasets have only train and test separation...
         # We need a validation set to prevent overfitting...
         if trigger.push(np.mean(errors)):
+          error_fn = self.get_ckpt_folder() + 'error%04d.pkl' % i
+          with open(error_fn, 'wb') as f:
+            pickle.dump(errors, f, protocol=-1)
           #self.test_patch_based()
           if not saved:
             self.save(i)

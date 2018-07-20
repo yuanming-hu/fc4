@@ -28,7 +28,11 @@ def get_average(image_packs):
 
 
 def test(name, ckpt, image_pack_name=None, output_filename=None):
-  external_image = image_pack_name.index('.') != -1
+  try:
+    external_image = image_pack_name.index('.') != -1
+  except:
+    external_image = None
+    pass
   if image_pack_name is None:
     data = None
   elif not external_image:
@@ -46,8 +50,12 @@ def test(name, ckpt, image_pack_name=None, output_filename=None):
           summary_key=123,
           data=data,
           eval_speed=False,
-          visualize=True)
+          visualize=output_filename is None)
       if output_filename is not None:
+        try:
+          os.mkdir('outputs')
+        except:
+          pass
         with open('outputs/%s.pkl' % output_filename, 'wb') as f:
           pickle.dump(ret, f)
         with open('outputs/%s_err.pkl' % output_filename, 'wb') as f:
@@ -55,7 +63,7 @@ def test(name, ckpt, image_pack_name=None, output_filename=None):
         with open('outputs/%s_conf.pkl' % output_filename, 'wb') as f:
           pickle.dump(conf, f)
         print ret
-        print 'results dumped'
+        print 'results dumped to outputs/%s_err.pkl' % output_filename
     else:
       img = cv2.imread(image_pack_name)
       # reverse gamma correction for sRGB
