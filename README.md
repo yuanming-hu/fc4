@@ -7,12 +7,13 @@
 
 **Change log:**
 - July 19, 2018:
-   - Improved instructions to reproduce the numbers reported in the paper. (See FAQ **How to reproduce the results reported in the paper?**)
+   - Improved instructions for (painless) reproducibility.
+   - See updated FAQ **How to reproduce the numbers reported in the paper?**
 - May 22, 2018:
    - Added some FAQs.
 - April 25, 2018: **Released network definition scripts and training instructions**. TODO:
    - Update `config.py` for more datasets and benchmarks.
-   - Upgrade `python` version from `2.7` to `3.5+`. **Please use python 2.7 for now.**
+   - Upgrade `python` version. **Please use python 2.7 for now.**
 - April 15, 2018: Started preparing for code release. 
 
 ## The Problem, the Challenge, and Our Solution 
