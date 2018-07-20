@@ -102,7 +102,7 @@ f) **How to reproduce the results reported in the paper?**
  | SqueezeNet-FC4 (CVPR 2017 paper)  | 1.65 | 1.18   | 1.27      | 0.38     | 3.78      | 4.73       |
  | SqueezeNet-FC4 (Open source code) | 1.63 | 1.16   | 1.24      | 0.38     | 3.76      | 4.85       |
  
- You can see we get slightly better result except for `95% Quant.`. The difference should be due to randomness (or different TensorFlow version, I am not sure myself...).
+ You can see we get slightly better result except for `95% Quant.`. The difference should be due to randomness (or different TensorFlow version etc.).
  
 g) **How to make inference on images based on a trained model?**
  - Test on other images: (e.g. `sample_inputs/a.png`)
