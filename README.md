@@ -112,11 +112,11 @@ g) **How to make inference on images based on a trained model?**
  You will see the results in seconds. Legend **(TODO: this legend doesn't match the latest code!)**:
  <img src="web/images/legend.jpg" width="900">
 
-h) **What does the `SEPERATE_CONFIDENCE` option mean? When its value is `False`, does it mean confidence-weighted pooling is disabled?**
+h) **What does the `SEPARATE_CONFIDENCE` option mean? When its value is `False`, does it mean confidence-weighted pooling is disabled?**
 
 Firstly, let's clarify a common misunderstanding of the color constancy problem: the output of a color constancy consists of *three* components. Actually, there are only *two* components (degrees-of-freedom). In some paper, the two components are denoted as `u`/`v` or `temperature`/`tint`. When estimating `R/G/B`, there should be a constraint on the values, either `L1` (`R+G+B=1`) or L2 (`R^2+G^2+B^2=1`).
 
-In our paper, we estimate `R/G/B`. Therefore, for each patch, we should either normalize the `R/G/B` output and estimate another confidence value (which is mathematically more explicit), or directly use the `unnormalized` estimation as normalized `R/G/B` times confidence, as mentioned in paper section 4.1. Either way is fine and confidence-weighting is used because one extra degree of freedom (i.e. confidence) is allowed. If you use `SEPERATE_CONFIDENCE=True`, the former is used; otherwise the latter is used.
+In our paper, we estimate `R/G/B`. Therefore, for each patch, we should either normalize the `R/G/B` output and estimate another confidence value (which is mathematically more explicit), or directly use the `unnormalized` estimation as normalized `R/G/B` times confidence, as mentioned in paper section 4.1. Either way is fine and confidence-weighting is used because one extra degree of freedom (i.e. confidence) is allowed. If you use `SEPARATE_CONFIDENCE=True`, the former is used; otherwise the latter is used.
 
 If you want to disable confidence-weighted pooling, the correct way is setting `WEIGHTED_POOLING=False`.
 

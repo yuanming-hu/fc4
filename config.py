@@ -145,6 +145,6 @@ SMOOTH_L1 = False
 TRAINING_VISUALIZATION = 200
 # Up/down scale images for testing? (Keeping the aspect ratio)
 TEST_BASE_RES = 0.5
-SEPERATE_CONFIDENCE = False
+SEPARATE_CONFIDENCE = False
 
 OVERRODE = {}

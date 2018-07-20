@@ -113,7 +113,7 @@ class FCN:
     #      we are weighting using the length.
     ##############
 
-    if not SEPERATE_CONFIDENCE:
+    if not SEPARATE_CONFIDENCE:
       # Way 2
       fc2 = slim.conv2d(fc1, 3, [1, 1], scope='fc2', activation_fn=None)
     else:
