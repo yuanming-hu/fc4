@@ -6,6 +6,8 @@
 
 
 **Change log:**
+- July 19, 2018:
+   - Improved instructions to reproduce the numbers reported in the paper. (See FAQ **How to reproduce the results reported in the paper?**)
 - May 22, 2018:
    - Added some FAQs.
 - April 25, 2018: **Released network definition scripts and training instructions**. TODO:
@@ -72,12 +74,12 @@ d) **Visualize Confidence Maps**
  You can look at how the confidence map evolves at the folders `models/fc4/example/testXXXXsummaries_0.500000`.
 
 e) **Pretrained models?**
-  To get the pretrained models on the ColorChecker dataset, please download [**Pretrained model on the ColorChecker Dataset**](https://github.com/yuanming-hu/fc4/releases/download/pretrained/pretrained_colorchecker_fold1and2.zip), and put the nine files in folder `pretrained`.
+  To get the pretrained models on the ColorChecker dataset, please download [**Pretrained models on the ColorChecker Dataset**](https://github.com/yuanming-hu/fc4/releases/download/pretrained/pretrained_colorchecker.zip), and put the nine files in folder `pretrained`.
  
 f) **How to reproduce the results reported in the paper?**
  - Taking the ColorChecker dataset as an example.
  - Please train the three-fold models (make sure you modify `FOLD` to be `0`, `1`, `2` in `config.py`) or download the pretrained models.
- - (Suppose you are using the pretrained model. Modify the path if not.) Test on the ColorChecker dataset (make sure you have preprocessed it):
+ - (Assuming you are using the pretrained models. Modify the path if not.) Test on the ColorChecker dataset (make sure you have preprocessed it):
  ```
  python2 fc4.py test pretrained/colorchecker_fold1and2.ckpt -1 g0 fold0
  python2 fc4.py test pretrained/colorchecker_fold2and0.ckpt -1 g1 fold1
@@ -92,13 +94,14 @@ f) **How to reproduce the results reported in the paper?**
  25: 0.384, med: 1.160 tri: 1.237 avg: 1.634 75: 3.760 95: 4.850
  ```
  - In comparison to what we reported in the paper:
- ```
+ 
  |                                   | Mean | Median | Tri. Mean | Best 25% | Worst 25% | 95% Quant. |
  |-----------------------------------|------|--------|-----------|----------|-----------|------------|
  | SqueezeNet-FC4 (CVPR 2017 paper)  | 1.65 | 1.18   | 1.27      | 0.38     | 3.78      | 4.73       |
  | SqueezeNet-FC4 (Open source code) | 1.63 | 1.16   | 1.24      | 0.38     | 3.76      | 4.85       |
- ```
+ 
  You can see we get slightly better result except for `95% Quant.`. The difference should be due to randomness (or different TensorFlow version, I am not sure myself...).
+ 
 g) **How to make inference on images based on a trained model?**
  - Test on other images: (e.g. `sample_inputs/a.png`)
  ```
