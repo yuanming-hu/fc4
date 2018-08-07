@@ -25,9 +25,9 @@
 # FAQ
 ## **Color Constancy and Datasets**
 
-a) **Where to get the datasets?**
- - *Shi's Re-processing of Gehler's Raw Dataset*: [here](http://www.cs.sfu.ca/~colour/data/shi_gehler/)
- - *NUS-8 Camera Dataset*: [here](http://www.comp.nus.edu.sg/~whitebal/illuminant/illuminant.html)
+a) **Links to datasets**
+ - [Shi's Re-processing of Gehler's Raw Dataset](http://www.cs.sfu.ca/~colour/data/shi_gehler/)
+ - [NUS-8 Camera Dataset](http://cvil.eecs.yorku.ca/projects/public_html/illuminant/illuminant.html)
 
 **(The following two sub-questions are FAQs before I release the code - now the script will take care of these details and you don't need to worry unless out of curiosity.)**
 
