@@ -67,7 +67,7 @@ def test(name, ckpt, image_pack_name=None, output_filename=None):
     else:
       img = cv2.imread(image_pack_name)
       # reverse gamma correction for sRGB
-      img = (img / 255.0) ** 2.2 * 16384
+      img = (img / 255.0) ** 2.2 * 65536
       images = [img]
       fcn.test_external(images=images, fns=[image_pack_name])
 
