@@ -671,7 +671,7 @@ class FCN:
   # Test external images, such as sixteen or some jpegs
   # without ground truth
   # images are BGR
-  # TODO: move the net work creation here
+  # TODO: move network creation here
   def test_external(self, images, scale=1.0, fns=None, show=True, write=True):
     illums = []
     confidence_maps = []
@@ -724,9 +724,19 @@ class FCN:
         cv2.imshow('Ret', merged[:, :, ::-1])
         k = cv2.waitKey(0) % (2**20)
       #if k == ord('s'):
+      filename = filename.split('/')[-1]
       if write:
         cv2.imwrite('/data/common/outputs/%s' % filename,
                     merged[:, :, ::-1] * 255.0)
+      try:
+        os.makedirs('cc_outputs')
+      except:
+        pass
+      corrected = np.power(img[:,:,::-1] / 65535 / est[None, None, :] * np.mean(est), 1/2.2)[:,:,::-1]
+      cv2.imshow("corrected", corrected)
+      cv2.waitKey(0)
+      cv2.imwrite('cc_outputs/corrected_%s' % filename, corrected * 255.0)
+      
     return illums, confidence_maps
 
   # Test how the network performs, if we just resize the image to fix the network input.
