@@ -109,6 +109,7 @@ g) **How to make inference on images based on a trained model?**
  ```
  python2 fc4.py test pretrained/colorchecker_fold1and2.ckpt -1 sample_inputs/a.png
  ```
+ The corrected image will be in the `cc_outputs` folder.
  
  You will see the results in seconds. Legend **(TODO: this legend doesn't match the latest code!)**:
  <img src="web/images/legend.jpg" width="900">
