@@ -114,10 +114,12 @@ def get_visualization(images, illums_est, illums_pooled, illums_ground,
                                   )
 
   vis_est = tf.nn.l2_normalize(illums_est, 3)
+  
+  exposure_boost = 5
 
-  img = tf.pow(images[:, :, :, ::-1] / 65535, 1 / VIS_GAMMA)
+  img = tf.pow(images[:, :, :, ::-1] / 65535 * exposure_boost, 1 / VIS_GAMMA)
   img_corrected = tf.pow(
-      images[:, :, :, ::-1] / 65535 / illums_pooled[:, None, None, :] *
+      images[:, :, :, ::-1] / 65535 / illums_pooled[:, None, None, :] * exposure_boost *
       tf.reduce_mean(illums_pooled, axis=(1), keep_dims=True)[:, None, None, :],
       1 / VIS_GAMMA)
 

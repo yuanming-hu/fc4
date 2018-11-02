@@ -32,10 +32,10 @@ def test(name, ckpt, image_pack_name=None, output_filename=None):
     external_image = image_pack_name.index('.') != -1
   except:
     external_image = None
-    pass
   if image_pack_name is None:
     data = None
   elif not external_image:
+    print("Loading image pack {}".format(image_pack_name))
     data = load_data(image_pack_name.split(','))
   with get_session() as sess:
     fcn = FCN(sess=sess, name=name)
